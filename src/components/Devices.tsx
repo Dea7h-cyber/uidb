@@ -96,7 +96,7 @@ const TableWrapper = styled.div`
 
 const TableHeader = styled.div`
   display: grid;
-  grid-template-columns: 32px 1fr 1fr;
+  grid-template-columns: 32px 2fr 1fr;
   border-bottom: 1px solid #ededf0;
   border-top: 1px solid transparent;
   font-size: 14px;
@@ -104,7 +104,7 @@ const TableHeader = styled.div`
 
 const DeviceWrapper = styled(Link)`
   display: grid;
-  grid-template-columns: 32px 1fr 1fr;
+  grid-template-columns: 32px 2fr 1fr;
   border-bottom: 1px solid #ededf0;
   border-top: 1px solid transparent;
   font-size: 14px;
@@ -173,6 +173,8 @@ const DeviceRowTitle = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
 `
 
 const DevicePicture = styled.div`

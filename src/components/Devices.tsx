@@ -1,4 +1,4 @@
-import { useEffect, useContext, ReactEventHandler, useMemo } from 'react'
+import { useEffect, useContext, useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'

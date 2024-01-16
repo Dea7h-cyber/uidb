@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { generateDeviceSearchValue } from '../utils'
+import { generateDeviceSearchValue, handleImageError } from '../utils'
 import { fetchUIDB } from '../query_fns/fetch_uidb'
 import { DevicesContext } from '../context/DevicesContext'
 import { FiltersContext } from '../context/FiltersContext'
@@ -35,10 +35,6 @@ export const Devices = () => {
     [filters.view]
   )
 
-  const handleImageError: ReactEventHandler<HTMLImageElement> = (img) => {
-    img.currentTarget.src = '/assets/no_image.svg'
-  }
-
   const isViewGrid = useMemo(() => filters.view === 'grid', [filters.view])
 
   return (
@@ -49,8 +45,8 @@ export const Devices = () => {
           {!isViewGrid ? (
             <TableHeader>
               <DevicePicture />
-              <DeviceRowTitle>Name</DeviceRowTitle>
-              <DeviceRowTitle>Product Line</DeviceRowTitle>
+              <DeviceRowTitle>{`Name`}</DeviceRowTitle>
+              <DeviceRowTitle>{`Product Line`}</DeviceRowTitle>
             </TableHeader>
           ) : null}
 

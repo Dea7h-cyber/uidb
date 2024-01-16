@@ -64,31 +64,31 @@ export const DeviceDetails = () => {
               </DeviceTitle>
               <DeviceDetailsList>
                 <DeviceDetailsListRow>
-                  <DeviceDetailsListRowName>Product Line</DeviceDetailsListRowName>
+                  <DeviceDetailsListRowName>{`Product Line`}</DeviceDetailsListRowName>
                   <DeviceDetailsListRowValue>{currentDevice.line.name}</DeviceDetailsListRowValue>
                 </DeviceDetailsListRow>
                 <DeviceDetailsListRow>
-                  <DeviceDetailsListRowName>ID</DeviceDetailsListRowName>
+                  <DeviceDetailsListRowName>{`ID`}</DeviceDetailsListRowName>
                   <DeviceDetailsListRowValue>{currentDevice.line.id}</DeviceDetailsListRowValue>
                 </DeviceDetailsListRow>
                 <DeviceDetailsListRow>
-                  <DeviceDetailsListRowName>Name</DeviceDetailsListRowName>
+                  <DeviceDetailsListRowName>{`Name`}</DeviceDetailsListRowName>
                   <DeviceDetailsListRowValue>{currentDevice.product.name}</DeviceDetailsListRowValue>
                 </DeviceDetailsListRow>
                 <DeviceDetailsListRow>
-                  <DeviceDetailsListRowName>Short Name</DeviceDetailsListRowName>
+                  <DeviceDetailsListRowName>{`Short Name`}</DeviceDetailsListRowName>
                   <DeviceDetailsListRowValue>{currentDevice.shortnames[0]}</DeviceDetailsListRowValue>
                 </DeviceDetailsListRow>
                 <DeviceDetailsListRow>
-                  <DeviceDetailsListRowName>Max Power</DeviceDetailsListRowName>
+                  <DeviceDetailsListRowName>{`Max Power`}</DeviceDetailsListRowName>
                   <DeviceDetailsListRowValue>{getDeviceMaxPower(currentDevice)}</DeviceDetailsListRowValue>
                 </DeviceDetailsListRow>
                 <DeviceDetailsListRow>
-                  <DeviceDetailsListRowName>Speed</DeviceDetailsListRowName>
+                  <DeviceDetailsListRowName>{`Speed`}</DeviceDetailsListRowName>
                   <DeviceDetailsListRowValue>{getDeviceMaxSpeed(currentDevice)}</DeviceDetailsListRowValue>
                 </DeviceDetailsListRow>
                 <DeviceDetailsListRow>
-                  <DeviceDetailsListRowName>Number of Ports</DeviceDetailsListRowName>
+                  <DeviceDetailsListRowName>{`Number of Ports`}</DeviceDetailsListRowName>
                   <DeviceDetailsListRowValue>
                     {currentDevice.unifi?.network?.numberOfPorts || 'n/a'}
                   </DeviceDetailsListRowValue>

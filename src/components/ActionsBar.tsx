@@ -30,7 +30,7 @@ export const ActionsBar = () => {
         <ArrowWrapper>
           <IconArrow />
         </ArrowWrapper>
-        <ButtonText>Back</ButtonText>
+        <ButtonText>{`Back`}</ButtonText>
       </ArrowButton>
       <ArrowGroup>
         <ArrowButton onClick={() => handleDeviceChange('prev')}>

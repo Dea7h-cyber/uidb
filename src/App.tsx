@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import styled from 'styled-components'
 
 import { DevicesContext } from './context/DevicesContext'
 
@@ -7,8 +9,6 @@ import { Devices } from './components/Devices'
 import { DeviceDetails } from './components/DeviceDetails'
 
 import './main.css'
-import { useState } from 'react'
-import styled from 'styled-components'
 import { Filters, FiltersContext } from './context/FiltersContext'
 
 export const App = () => {

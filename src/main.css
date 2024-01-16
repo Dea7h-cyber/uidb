@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'UI Sans v7 Regular';
+  src: url('https://ui.com/microsite/fonts/ui-sans-v7-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'UI Sans v7 Bold';
+  src: url('https://ui.com/microsite/fonts/ui-sans-v7-bold.woff2') format('woff2');
+}
+
+:root {
+  --main-bg-color: #ffffff;
+  --main-font-color: #808893;
+  --ui-color-neutral: #50565e;
+  --ui-color-neutral-00: #b6b9c4;
+  --ui-color-blue: #006fff;
+  --ui-color-grey-00: #f9fafa;
+  --ui-color-grey-01: #f4f5f6;
+  --ui-color-grey-02: #ededf0;
+  --ui-color-grey-03: #838691;
+  --ui-color-red-01: #f9b0b2;
+  --ui-color-red-02: #f03a3e;
+}
+
+body {
+  margin: 0;
+  font-family: 'UI Sans v7 Regular';
+  color: var(--main-font-color);
+  background-color: var(--main-bg-color);
+}
+
+.bold_underlined {
+  font-family: 'UI Sans v7 Bold';
+  text-decoration: underline;
+}

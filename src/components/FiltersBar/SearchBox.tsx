@@ -132,7 +132,7 @@ const SearchInput = styled.input`
   }
 
   @media screen and (max-width: 600px) {
-    width: auto;
+    width: 100%;
   }
 `
 
@@ -197,4 +197,8 @@ const SearchResultDeviceAbbrev = styled.div`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `

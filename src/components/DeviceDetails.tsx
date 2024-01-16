@@ -157,6 +157,10 @@ const DetailsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+
+  @media screen AND (max-width: 320px) {
+    padding: 0 8px;
+  }
 `
 
 const DeviceDetailsList = styled.div`

@@ -88,6 +88,10 @@ const TableWrapper = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
     grid-gap: 16px;
   }
+
+  @media screen and (max-width: 360px) {
+    padding: 0 16px 16px 16px;
+  }
 `
 
 const TableHeader = styled.div`

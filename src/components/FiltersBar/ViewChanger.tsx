@@ -38,7 +38,7 @@ export const ViewChanger = () => {
 }
 
 const ViewChangerWrapper = styled.div`
-  padding-right: 8px;
+  padding: 0 8px;
   display: flex;
 
   svg {

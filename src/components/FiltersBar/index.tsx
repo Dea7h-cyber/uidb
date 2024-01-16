@@ -30,6 +30,10 @@ const FiltersBarWrapper = styled.section`
   padding: 0 32px;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 360px) {
+    padding: 0 16px;
+  }
 `
 
 const SearchWrapper = styled.div`

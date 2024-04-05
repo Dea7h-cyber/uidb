@@ -19,6 +19,8 @@ const getSrcUrl = (
   return url.toString();
 };
 
+const RED_SQUARE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8zc//HgAE8AH6Dvn/KgAAAABJRU5ErkJggg==';
+
 const getSizeNumber = (size: UidbImageProps['size']) => {
   const sizeNumber =
     typeof size === 'number' ? size : parseInt(size.replace('px', ''), 10);
@@ -102,7 +104,7 @@ export const UidbImage_WithKey: React.FC<UidbImageProps & { key: string }> = ({
     srcFallbackOffline && `${srcFallbackOffline} 2x`,
     srcFallbackBundled && `${srcFallbackBundled} 2x`,
   ].filter(src => !!src).join(', ');
-  const src = srcFallback || src1x;
+  const src = srcFallback || src1x || RED_SQUARE;
 
   const onError = useCallback(
     (event: React.SyntheticEvent<HTMLImageElement, Event>) => {

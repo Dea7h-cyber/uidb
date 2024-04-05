@@ -1,3 +1,13 @@
+
+
+type DeviceImages = {
+  default: string
+  nopadding?: string
+  topology?: string
+}
+
+type DeviceImageName = keyof DeviceImages
+
 interface Device {
   id: string
 
@@ -13,10 +23,7 @@ interface Device {
     name: string
   }
 
-  icon: {
-    id: string
-    resolutions: [number, number][]
-  }
+  images: DeviceImages
 
   unifi?: {
     network?: {

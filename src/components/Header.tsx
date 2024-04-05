@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { UbiquitiLogo } from '../assets/Logo'
+import OriginSelect from '../OriginSelect'
+import ImageSelect from '../ImageSelect'
 
 export const Header = () => {
   return (
@@ -9,16 +11,17 @@ export const Header = () => {
         <UbiquitiLogo />
       </LogoWrapper>
       <PageTitle>{`Devices`}</PageTitle>
-      <DeveloperName>{`Emil Nikolov`}</DeveloperName>
+      <ImageSelect />
+      <OriginSelect />
     </HeaderWrapper>
   )
 }
 
 const HeaderWrapper = styled.header`
-  display: grid;
-  grid-template-columns: 50px 1fr auto;
+  display: flex;
+  gap: 8px;
+  padding-right: 16px;
   height: 50px;
-  width: 100vw;
   background-color: #f4f5f6;
   align-items: center;
 `
@@ -54,9 +57,5 @@ const LogoWrapper = styled(Link)`
 const PageTitle = styled.div`
   margin-left: 8px;
   font-size: 14px;
-`
-
-const DeveloperName = styled.div`
-  margin-right: 32px;
-  font-size: 14px;
+  margin-right: auto;
 `

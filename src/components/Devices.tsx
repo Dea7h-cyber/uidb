@@ -3,11 +3,12 @@ import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { generateDeviceSearchValue, handleImageError } from '../utils'
+import { generateDeviceSearchValue, getImgHiresUrl, handleImageError } from '../utils'
 import { fetchUIDB } from '../query_fns/fetch_uidb'
 import { DevicesContext } from '../context/DevicesContext'
 import { FiltersContext } from '../context/FiltersContext'
 import { FiltersBar } from './FiltersBar'
+import UidbImage from './UidbImage'
 
 export const Devices = () => {
   const [devices, setDevices] = useContext(DevicesContext)
@@ -27,13 +28,6 @@ export const Devices = () => {
     )
   }, [devicesList, filters, setDevices])
 
-  const getImageSrc = useMemo(
-    () => (device: Device) => {
-      const [width, height] = device.icon.resolutions[filters.view === 'grid' ? 2 : 0]
-      return `https://static.ui.com/fingerprint/ui/icons/${device.icon.id}_${width}x${height}.png`
-    },
-    [filters.view]
-  )
 
   const isViewGrid = useMemo(() => filters.view === 'grid', [filters.view])
 
@@ -55,7 +49,7 @@ export const Devices = () => {
             devices.map((device) => (
               <DeviceWrapper key={device.id} to={`/devices/${device.id}`}>
                 <DevicePicture className='device-picture'>
-                  <img src={getImageSrc(device)} onError={handleImageError} alt={device.product.name} />
+                  <UidbImage hiresUrl={getImgHiresUrl(device)} onError={handleImageError} alt={device.product.name} size={isViewGrid ? 96 : 32} />
                 </DevicePicture>
                 <DeviceTitle className='device-title'>{device.product.name}</DeviceTitle>
                 <DeviceProductLine className='device-product-line'>
@@ -178,26 +172,16 @@ const DeviceRowTitle = styled.div`
 `
 
 const DevicePicture = styled.div`
-  width: 36px;
+  width: 32px;
   height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  img {
-    width: 20px;
-    height: 20px;
-  }
-
   .grid & {
     width: 100%;
     height: 100px;
     background-color: var(--ui-color-grey-00);
-
-    img {
-      width: auto;
-      height: 84px;
-    }
   }
 `
 

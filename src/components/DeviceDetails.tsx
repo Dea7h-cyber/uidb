@@ -5,21 +5,14 @@ import styled from 'styled-components'
 
 import { fetchUIDB } from '../query_fns/fetch_uidb'
 import { ActionsBar } from './ActionsBar'
+import UidbImage from './UidbImage'
+import { getImgHiresUrl } from '../utils'
 
 export const DeviceDetails = () => {
   const { data: devicesList, isPending, isError } = useQuery({ queryKey: ['uidb'], queryFn: fetchUIDB })
   const { id } = useParams()
   const [showJSON, setShowJSON] = useState(false)
   const jsonWrapperRef = useRef<HTMLPreElement>(null)
-
-  const getImageSrc = (device: Device) => {
-    if (!device?.icon?.resolutions || !device.icon.resolutions.length) return
-    const [width, height] =
-      device.icon.resolutions.find((r) => r[0] === 255 || r[0] === 256) ||
-      device.icon.resolutions[device?.icon?.resolutions.length - 1]
-
-    return `https://static.ui.com/fingerprint/ui/icons/${device?.icon?.id}_${width}x${height}.png`
-  }
 
   const currentDevice = useMemo<Device | null>(
     () => devicesList?.find((device) => device.id === id) || null,
@@ -54,7 +47,7 @@ export const DeviceDetails = () => {
         <ContentWrapper>
           <DeviceDetailsWrapper>
             <DeviceImageWrapper>
-              <img src={getImageSrc(currentDevice)} alt={currentDevice.product.name} />
+              <UidbImage hiresUrl={getImgHiresUrl(currentDevice)} alt={currentDevice.product.name} size={256} />
             </DeviceImageWrapper>
             <div></div>
             <DetailsWrapper>

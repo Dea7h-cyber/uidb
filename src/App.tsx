@@ -10,10 +10,11 @@ import { DeviceDetails } from './components/DeviceDetails'
 
 import './main.css'
 import { Filters, FiltersContext } from './context/FiltersContext'
+import useLocalStorageState from './useLocalStorageState'
 
 export const App = () => {
   const [devices, setDevices] = useState<Device[]>([])
-  const [filters, setFilters] = useState<Filters>({ searchWord: '', productLines: [], view: 'list' })
+  const [filters, setFilters] = useLocalStorageState<Filters>('uidb_filters', { searchWord: '', productLines: [], view: 'list' })
 
   return (
     <AppWrapper>

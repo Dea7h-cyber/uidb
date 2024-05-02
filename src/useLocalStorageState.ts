@@ -1,10 +1,9 @@
-
-import { Dispatch, SetStateAction, useCallback, useMemo, useRef, useState } from 'react';
+import { Dispatch, SetStateAction, useCallback, useRef, useState } from 'react';
 
 const useForceUpdate = (): (() => void) => {
   const [, setState] = useState<{}>({});
   return useCallback(() => setState({}), []);
-}
+};
 
 const getItem = <T>(key: string): T | null => {
   const rawValue = localStorage.getItem(key);
@@ -30,7 +29,7 @@ const setItem = (key: string, value: unknown | undefined): void => {
   // Serialize even strings - `someString` is persisted as `"someString"`
   const jsonValue = JSON.stringify(value);
   localStorage.setItem(key, jsonValue);
-}
+};
 
 /**
  * Like useState, but with persistance to localStorage using JSON serialization.

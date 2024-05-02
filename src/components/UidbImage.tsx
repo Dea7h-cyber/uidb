@@ -1,4 +1,3 @@
-
 import React, { useCallback, useMemo, useState } from 'react';
 
 const IMG_SVC_URL = 'https://images.svc.ui.com/';
@@ -19,7 +18,8 @@ const getSrcUrl = (
   return url.toString();
 };
 
-const RED_SQUARE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8zc//HgAE8AH6Dvn/KgAAAABJRU5ErkJggg==';
+const RED_SQUARE =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8zc//HgAE8AH6Dvn/KgAAAABJRU5ErkJggg==';
 
 const getSizeNumber = (size: UidbImageProps['size']) => {
   const sizeNumber =
@@ -76,7 +76,7 @@ export type UidbImageProps = {
   srcFallbackBundled?: string | null;
 } & Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'src' | 'srcSet'>;
 
-export const UidbImage_WithKey: React.FC<UidbImageProps & { key: string }> = ({
+export const UidbImageWithKey: React.FC<UidbImageProps & { key: string }> = ({
   hiresUrl,
   size,
   srcFallbackOffline,
@@ -98,12 +98,16 @@ export const UidbImage_WithKey: React.FC<UidbImageProps & { key: string }> = ({
       ? srcFallbackOffline
       : undefined;
 
-  const srcSet = hiresUrl && [
-    `${src1x} 1x`,
-    `${src2x} 2x`,
-    srcFallbackOffline && `${srcFallbackOffline} 2x`,
-    srcFallbackBundled && `${srcFallbackBundled} 2x`,
-  ].filter(src => !!src).join(', ');
+  const srcSet =
+    hiresUrl &&
+    [
+      `${src1x} 1x`,
+      `${src2x} 2x`,
+      srcFallbackOffline && `${srcFallbackOffline} 2x`,
+      srcFallbackBundled && `${srcFallbackBundled} 2x`,
+    ]
+      .filter((src) => !!src)
+      .join(', ');
   const src = srcFallback || src1x || RED_SQUARE;
 
   const onError = useCallback(
@@ -138,7 +142,7 @@ export const UidbImage_WithKey: React.FC<UidbImageProps & { key: string }> = ({
     <img
       style={{
         objectFit: `contain`,
-        aspectRatio: '1'
+        aspectRatio: '1',
       }}
       width={sizeNumber}
       height={sizeNumber}
@@ -175,7 +179,7 @@ export const UidbImage_WithKey: React.FC<UidbImageProps & { key: string }> = ({
  */
 const UidbImage: React.VFC<UidbImageProps> = (props) => {
   const key = `${props.hiresUrl}_${props.size}`;
-  return <UidbImage_WithKey key={key} {...props} />;
+  return <UidbImageWithKey key={key} {...props} />;
 };
 
 export default UidbImage;
